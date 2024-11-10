@@ -1,0 +1,19 @@
+<template>
+        <lightning-card  title="Two Way data binding">
+            <div class="slds-m-around_medium">
+            <lightning-input type="text" onkeyup={changeName} label="Enter some text" placeholder="type here..."></lightning-input>
+            <h1>Hello {name}</h1>
+            </div>            
+        </lightning-card>
+         <lightning-card  title="@track decorator">
+            <div class="slds-m-around_medium">
+            <lightning-input type="text" onkeyup={trackProperty} label="Enter some text" placeholder="type here..."></lightning-input>
+            <h1>Hello {address.city}</h1>
+            </div>            
+        </lightning-card>
+         <lightning-card  title="getter demo">
+            <div class="slds-m-around_medium">
+            <h1>Hello {addNumbers}</h1>
+            </div>            
+        </lightning-card>
+</template>

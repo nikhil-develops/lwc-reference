@@ -1,0 +1,52 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title="Quiz : Tell the Capital?">
+        <form >
+        <div class="slds-m-around_medium slds-p-around_medium">
+            <ul>
+            <template for:each={questions} for:item="question">
+                <div key={quest}>
+                 <li><strong>{question.id}-{question.ques}</strong></li>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <!-- sldsValidatorIgnoreNextLine -->
+                            <input type="radio" name={question.id} value="a"  onchange={changeHandler}/>
+                            {question.options.a}
+                        </div>
+                        <div class="slds-col">
+                            <input type="radio" name={question.id} value="b" onchange={changeHandler}/>
+                            {question.options.b}
+                        </div>
+                        <div class="slds-col">
+                            <!-- sldsValidatorIgnoreNextLine -->
+                            <input type="radio" name={question.id} value="c" onchange={changeHandler}/>
+                            {question.options.c}
+                        </div>
+                    </div>                    
+                </div>
+            </template>
+            </ul>
+        </div>
+        <lightning-button
+        variant="brand"
+        type="submit"
+        class="slds-m-around_small"
+        title="Submit Quiz"
+        disabled={allNotSelected}
+        onclick={submitHandler}
+        label="Submit Quiz"
+        ></lightning-button>
+         <lightning-button
+        variant="brand"
+        type="reset"
+        class="slds-m-around_small"
+        title="Reset Quiz"
+        onclick={resetHandler}
+        label="Reset Quiz"
+        ></lightning-button>
+        </form>
+    </lightning-card>
+    <template lwc:if={isSubmitted}>
+    <h1 class={fullMarks} >You have scored {correctAnswerCount} out of {questions.length}</h1>
+    </template>
+</template>

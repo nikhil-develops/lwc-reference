@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title={parentTitle} onclick={alertMessage}>
+        <template lwc:if={showModal}>
+            <c-c2p-modal-component
+            onclose={closeHanderNew}
+            >
+
+        </c-c2p-modal-component>
+        </template>
+        <lightning-button label="Show" title="Non-primary action" onclick={handleClick} class="slds-var-m-left_x-small">Show</lightning-button>
+
+        
+    </lightning-card>
+</template>

@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Looping in LWC">
+        <template for:each={cars} for:item="car" for:index="joke">
+            <ul key={vehicle} class="slds-has-dividers_around-space">
+                <div class="slds-m-around_medium">
+                    <span>{joke}</span>
+                    <li class="slds-item">{car}</li>
+                </div>
+        </ul>
+        </template>      
+    </lightning-card>
+    <lightning-card title="Itrator in LWC" >
+        <div class="slds-var-m-arround_medium">
+            <template iterator:friend={friends}>
+                <ul key={friend.value.id} class="slds-has-dividers_around-space ">
+                    <template lwc:if={friend.first}>
+                        <div><strong>List of friends</strong></div>
+                    </template>
+                    <li class="slds-item"><strong>{friend.value.name}:</strong>{friend.value.mobile}</li>
+                    <template lwc:if={friend.last}>
+                        <div><strong>Thankyou for checking the list!</strong></div>
+                    </template>
+                </ul>
+
+            </template>
+        </div>
+    </lightning-card>
+
+</template>
